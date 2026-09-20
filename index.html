@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekrutmen Field Production Engineer</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+            color: #333;
+            margin: 0;
+            padding: 40px 15px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            max-width: 650px;
+            width: 100%;
+            padding: 35px;
+        }
+        .header {
+            text-align: center;
+            border-bottom: 2px solid #eef2f5;
+            padding-bottom: 20px;
+            margin-bottom: 25px;
+        }
+        .header h2 {
+            margin: 0;
+            color: #1e3c72;
+            font-size: 24px;
+        }
+        .header p {
+            margin: 8px 0 0;
+            color: #666;
+            font-size: 14px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #2c3e50;
+            font-size: 14px;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: #1e3c72;
+        }
+        .checkbox-group {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 6px;
+            border: 1px solid #e9ecef;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            font-size: 13px;
+            font-weight: normal;
+        }
+        .checkbox-item input {
+            margin-right: 8px;
+        }
+        .btn-submit {
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: opacity 0.3s;
+        }
+        .btn-submit:hover {
+            opacity: 0.9;
+        }
+        .btn-submit:disabled {
+            background: #aaa;
+            cursor: not-allowed;
+        }
+        #statusMessage {
+            margin-top: 15px;
+            padding: 12px;
+            border-radius: 6px;
+            display: none;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        .success { background-color: #d4edda; color: #155724; }
+        .error { background-color: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">
+        <h2>Recruitment Application Form</h2>
+        <p>Position: <strong>Field Production Engineer</strong></p>
+    </div>
+
+    <form id="recruitmentForm">
+        <!-- Nama Lengkap -->
+        <div class="form-group">
+            <label for="fullName">Nama Lengkap *</label>
+            <input type="text" id="fullName" required placeholder="Masukkan nama lengkap">
+        </div>
+
+        <!-- Kontak -->
+        <div style="display: flex; gap: 15px;">
+            <div class="form-group" style="flex: 1;">
+                <label for="email">Email *</label>
+                <input type="email" id="email" required placeholder="nama@email.com">
+            </div>
+            <div class="form-group" style="flex: 1;">
+                <label for="phone">No. Telepon / WhatsApp *</label>
+                <input type="text" id="phone" required placeholder="08123456789">
+            </div>
+        </div>
+
+        <!-- Age (Usia) -->
+        <div class="form-group">
+            <label for="age">Usia (Age) *</label>
+            <input type="number" id="age" min="18" max="65" required placeholder="Contoh: 28">
+        </div>
+
+        <!-- Education (Pendidikan) -->
+        <div class="form-group">
+            <label for="education">Pendidikan Terakhir (Education) *</label>
+            <select id="education" required>
+                <option value="">-- Pilih Pendidikan Terakhir --</option>
+                <option value="S1 Teknik Perminyakan">S1 Teknik Perminyakan / Petroleum Engineering</option>
+                <option value="S1 Teknik Kimia">S1 Teknik Kimia / Chemical Engineering</option>
+                <option value="S1 Teknik Mesin">S1 Teknik Mesin / Mechanical Engineering</option>
+                <option value="S1 Teknik Lainnya">S1 Teknik Lainnya</option>
+                <option value="S2 / S3 Teknik">S2 / S3 Magister / Doktor Teknik</option>
+                <option value="D3/D4 Teknik">D3 / D4 Teknik</option>
+            </select>
+        </div>
+
+        <!-- Experience (Pengalaman) -->
+        <div class="form-group">
+            <label for="experience">Pengalaman Kerja (Experience) *</label>
+            <textarea id="experience" rows="4" required placeholder="Jelaskan riwayat pengalaman kerja Anda sebagai Field Production Engineer (Tahun, Perusahaan, Lapangan/Field, dan deskripsi singkat tugas)"></textarea>
+        </div>
+
+        <!-- Competency (Kompetensi Field Production Engineering) -->
+        <div class="form-group">
+            <label>Kompetensi Utama (Competencies) *</label>
+            <div class="checkbox-group">
+                <label class="checkbox-item"><input type="checkbox" name="competency" value="Well Testing & Nodal Analysis"> Well Testing & Nodal Analysis</label>
+                <label class="checkbox-item"><input type="checkbox" name="competency" value="Artificial Lift Systems (ESP, Rod Pump, Gas Lift)"> Artificial Lift Systems</label>
+                <label class="checkbox-item"><input type="checkbox" name="competency" value="Production Optimization & Flow Assurance"> Flow Assurance</label>
+                <label class="checkbox-item"><input type="checkbox" name="competency" value="Surface Facility Operations"> Surface Facilities</label>
+                <label class="checkbox-item"><input type="checkbox" name="competency" value="SCADA / DCS Monitoring"> SCADA / DCS System</label>
+                <label class="checkbox-item"><input type="checkbox" name="competency" value="HSE & Oil/Gas Field Safety"> HSE / Oil & Gas Safety</label>
+            </div>
+            <input type="text" id="otherCompetency" style="margin-top: 10px;" placeholder="Kompetensi / Sertifikasi tambahan lainnya (opsional)">
+        </div>
+
+        <!-- Lampiran CV -->
+        <div class="form-group">
+            <label for="cvFile">Lampiran CV (PDF / DOCX, maks 5MB) *</label>
+            <input type="file" id="cvFile" accept=".pdf,.doc,.docx" required>
+        </div>
+
+        <button type="submit" class="btn-submit" id="submitBtn">Kirim Lamaran</button>
+    </form>
+
+    <div id="statusMessage"></div>
+</div>
+
+<script>
+    // MASUKKAN WEB APP URL GOOGLE APPS SCRIPT DI SINI
+    const SCRIPT_URL = "GANTI_DENGAN_WEB_APP_URL_ANDA";
+
+    document.getElementById('recruitmentForm').addEventListener('submit', async function(e) {
+        e.preventDefault();
+
+        const submitBtn = document.getElementById('submitBtn');
+        const statusMsg = document.getElementById('statusMessage');
+        
+        submitBtn.disabled = true;
+        submitBtn.innerText = "Mengirim Data & CV...";
+        statusMsg.style.display = 'none';
+
+        // Ambil data kompetensi yang dicentang
+        const selectedCompetencies = Array.from(document.querySelectorAll('input[name="competency"]:checked'))
+            .map(cb => cb.value);
+        const otherComp = document.getElementById('otherCompetency').value.trim();
+        if (otherComp) selectedCompetencies.push(otherComp);
+
+        const cvFileInput = document.getElementById('cvFile').files[0];
+        
+        let cvBase64 = null;
+        let cvName = "";
+        let cvMimeType = "";
+
+        if (cvFileInput) {
+            cvName = cvFileInput.name;
+            cvMimeType = cvFileInput.type;
+            cvBase64 = await convertFileToBase64(cvFileInput);
+        }
+
+        const payload = {
+            fullName: document.getElementById('fullName').value,
+            email: document.getElementById('email').value,
+            phone: document.getElementById('phone').value,
+            age: document.getElementById('age').value,
+            education: document.getElementById('education').value,
+            experience: document.getElementById('experience').value,
+            competency: selectedCompetencies.join(', '),
+            cvFile: cvBase64,
+            cvName: cvName,
+            cvMimeType: cvMimeType
+        };
+
+        try {
+            const response = await fetch(SCRIPT_URL, {
+                method: 'POST',
+                body: JSON.stringify(payload)
+            });
+
+            const result = await response.json();
+
+            if (result.status === 'success') {
+                statusMsg.className = 'success';
+                statusMsg.innerText = '✓ Lamaran Anda berhasil dikirim! Terima kasih.';
+                statusMsg.style.display = 'block';
+                document.getElementById('recruitmentForm').reset();
+            } else {
+                throw new Error(result.message || 'Gagal menyimpan data.');
+            }
+        } catch (err) {
+            statusMsg.className = 'error';
+            statusMsg.innerText = '❌ Terjadi kesalahan: ' + err.message;
+            statusMsg.style.display = 'block';
+        } finally {
+            submitBtn.disabled = false;
+            submitBtn.innerText = "Kirim Lamaran";
+        }
+    });
+
+    function convertFileToBase64(file) {
+        return new Promise((resolve, reject) => {
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = () => resolve(reader.result);
+            reader.onerror = error => reject(error);
+        });
+    }
+</script>
+
+</body>
+</html>
